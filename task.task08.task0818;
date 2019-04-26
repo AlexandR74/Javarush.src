@@ -1,0 +1,48 @@
+package com.javarush.task.task08.task0818;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/* 
+Только для богачей
+*/
+
+public class Solution {
+    public static HashMap<String, Integer> createMap() {
+        HashMap<String, Integer> map = new HashMap<>();//напишите тут ваш код
+        map.put("Last Name ", 500);
+        map.put("Last Name 1", 510);
+        map.put("Last Name 2", 300);
+        map.put("Last Name 3", 600);
+        map.put("Last Name 4", 455);
+        map.put("Last Name 5", 700);
+        map.put("Last Name 6", 300);
+        map.put("Last Name 7", 500);
+        map.put("Last Name 8", 450);
+        map.put("Last Name 9", 200);
+        return map;
+        //напишите тут ваш код
+    }
+
+    public static void removeItemFromMap(HashMap<String, Integer> map) {
+       HashMap<String, Integer> copy = new HashMap<String, Integer>(map);
+        for (Map.Entry<String, Integer> pair : copy.entrySet()) {
+            if (pair.getValue() < 500)
+                map.remove(pair.getKey());
+        }
+    }
+
+    public static void main(String[] args) {
+        removeItemFromMap(createMap());
+
+    }
+}
+
+Создать словарь (Map<String, Integer>) и занести в него десять записей по принципу: "фамилия" - "зарплата".
+Удалить из словаря всех людей, у которых зарплата ниже 500.
+
+Требования:
+Программа не должна выводить текст на экран.
+Программа не должна считывать значения с клавиатуры.
+Метод createMap() должен создавать и возвращать словарь HashMap с типом элементов String, Integer состоящих из 10 записей по принципу «фамилия» - «зарплата».
+Метод removeItemFromMap() должен удалять из словаря всех людей, у которых зарплата ниже 500.
