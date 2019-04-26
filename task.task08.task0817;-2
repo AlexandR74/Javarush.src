@@ -1,0 +1,57 @@
+package com.javarush.task.task08.task0817;
+
+import java.util.HashMap;
+import java.util.Map;
+
+/* 
+Нам повторы не нужны
+*/
+
+public class Solution {
+    public static HashMap<String, String> createMap() {
+        HashMap<String, String> map = new HashMap<>();//напишите тут ваш код
+        map.put("Last Name ", "First Name ");
+        map.put("Last Name 1", "First Name 1");
+        map.put("Last Name 2", "First Name 2");
+        map.put("Last Name 3", "First Name 3");
+        map.put("Last Name 4", "First Name 4");
+        map.put("Last Name 5", "First Name 5");
+        map.put("Last Name 6", "First Name 6");
+        map.put("Last Name 7", "First Name 7");
+        map.put("Last Name 8", "First Name 8");
+        map.put("Last Name 9", "First Name 8");
+        return map;
+
+    }
+
+    public static void removeTheFirstNameDuplicates(Map<String, String> map) {
+        HashMap<String, String> copy = new HashMap<>(map);
+        HashMap<String, String> delete = new HashMap<>(map);
+        for(Map.Entry<String, String> pair : copy.entrySet()){
+            delete.remove(pair.getKey());
+            if(delete.containsValue(pair.getValue()))removeItemFromMapByValue(map, pair.getValue());
+        }
+    }
+
+    public static void removeItemFromMapByValue(Map<String, String> map, String value) {
+        HashMap<String, String> copy = new HashMap<String, String>(map);
+        for (Map.Entry<String, String> pair : copy.entrySet()) {
+            if (pair.getValue().equals(value))
+                map.remove(pair.getKey());
+        }
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
+
+Создать словарь (Map<String, String>) занести в него десять записей по принципу "фамилия" - "имя".
+Удалить людей, имеющих одинаковые имена.
+
+Требования:
+•	Программа не должна выводить текст на экран.
+•	Программа не должна считывать значения с клавиатуры.
+•	Метод createMap() должен создавать и возвращать словарь HashMap с типом элементов String, String состоящих из 10 записей.
+•	Метод removeTheFirstNameDuplicates() должен удалять из словаря всех людей, имеющие одинаковые имена.
+•	Метод removeTheFirstNameDuplicates() должен вызывать метод removeItemFromMapByValue().
