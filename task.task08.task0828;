@@ -35,7 +35,7 @@ public class Solution {
         if (index < 0)
             return;
 
-        System.out.printf("%s is %d month\n", months.get(index), index + 1);
+        System.out.printf("%s is the %d month\n", months.get(index), index + 1);
     }
 }
 
